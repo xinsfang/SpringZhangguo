@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<bean id="gyl" class="com.zhangguo.Spring053.spel01.User" p:id="9527">
+		<property name="name" value="郭永乐">
+		</property>
+	</bean>
+
+	<bean id="order001" class="com.zhangguo.Spring053.spel01.Order">
+		<property name="customer" ref="gyl"></property>
+		<property name="userName" value="#{gyl.name}"></property>
+		<property name="orderName" value='#{"Apples".toUpperCase()}'></property>
+	</bean>
+	<!-- 在配置文件中，出现了#｛｝形式的表达式，我们就称为Spel表达式。
+	#{gyl.name}作用是找到名称为gyl的bean取出中间的name值；
+	#{"Apples".toUpperCase()}把字符串Apples转换成大写并输出。 -->
+</beans>

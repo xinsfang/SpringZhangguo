@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="zhuhai" class="spring02.Address">
+        <property name="country" value="中国"></property>
+        <property name="city" value="珠海"></property>
+    </bean>
+    <bean id="tom" class="spring02.Student" init-method="init" destroy-method="over">
+        <constructor-arg name="name" value="张柏川"></constructor-arg>
+        <constructor-arg name="height" value="195"></constructor-arg>
+        <constructor-arg name="address" ref="zhuhai"></constructor-arg>
+    </bean>
+    <bean id="rose" class="spring02.Student" scope="prototype">
+        <constructor-arg index="0" value="张柏芝"></constructor-arg>
+        <constructor-arg index="1" value="196"></constructor-arg>
+        <constructor-arg index="2" ref="zhuhai"></constructor-arg>
+    </bean>
+</beans>
